@@ -27,16 +27,14 @@ def check_header_coordinates(pdf_path):
         
         found_any = False
         for b in blocks:
-            y_top = b[1]   # Top edge of text
-            y_bottom = b[3] # Bottom edge of text
+            y_top = b[1]
+            y_bottom = b[3]
             text = b[4].strip().replace("\n", " ")
-            
-            # Only show items in the top 100 pixels
+
             if y_bottom < 150:
                 print(f"Y-Range: {y_top:.1f} to {y_bottom:.1f} | Text: {text}")
                 found_any = True
             else:
-                # Stop looking once we go past the header area
                 break
         
         if not found_any:
@@ -44,3 +42,5 @@ def check_header_coordinates(pdf_path):
 
 file_path = r"data\Caterpillar 797F Operation and Maintenance Manual.pdf"
 check_header_coordinates(file_path)
+
+# In our document, the recommended cut-off will be 75 pixels.
