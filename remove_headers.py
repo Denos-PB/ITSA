@@ -1,6 +1,6 @@
 import fitz
 
-def remove_headers(blocks, header_cutoff = 75):
+def remove_headers(blocks, header_cutoff):
     """
     Removes any text block that starts above the cutoff Y-coordinate.
     Returns a filtered list of blocks.
